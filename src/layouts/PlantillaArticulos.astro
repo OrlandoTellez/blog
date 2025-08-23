@@ -242,11 +242,18 @@ const { tituloPagina } = Astro.props;
 
 
 <script>
+  document.addEventListener("DOMContentLoaded", () => {
+  const barra = document.querySelector(".barra-top");
+  if (!(barra instanceof HTMLElement)) return;
+
   window.addEventListener("scroll", () => {
-    const barra = document.querySelector(".barra-top");
     const scrollTop = window.scrollY;
     const alturaPagina = document.documentElement.scrollHeight - window.innerHeight;
     const progreso = (scrollTop / alturaPagina) * 100;
     barra.style.width = progreso + "%";
   });
+});
+
 </script>
+
+ 
