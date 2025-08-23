@@ -20,6 +20,7 @@ const { tituloPagina } = Astro.props;
     <title>{tituloPagina}</title>
   </head>
   <body>
+    <div class="barra-top"></div>
     <Header />
     <div class="container-slot">
       <slot />
@@ -40,7 +41,6 @@ const { tituloPagina } = Astro.props;
     --color-negro: #ffffff;
     --ancho-maximo: 1024px;
     --color-codigo: #121212;
-
   }
 
   [data-theme="light"] {
@@ -73,6 +73,26 @@ const { tituloPagina } = Astro.props;
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .barra-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 6px;
+    width: 0; 
+    background: var(--color-fuente-fechas);
+    z-index: 9999;
+    transition: width 0.1s linear;
+  }
+
+  @keyframes scroll-progress {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
   }
 
   .container-slot {
@@ -219,3 +239,14 @@ const { tituloPagina } = Astro.props;
     margin: 2em 0;
   }
 </style>
+
+
+<script>
+  window.addEventListener("scroll", () => {
+    const barra = document.querySelector(".barra-top");
+    const scrollTop = window.scrollY;
+    const alturaPagina = document.documentElement.scrollHeight - window.innerHeight;
+    const progreso = (scrollTop / alturaPagina) * 100;
+    barra.style.width = progreso + "%";
+  });
+</script>
