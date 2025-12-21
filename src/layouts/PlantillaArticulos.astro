@@ -34,6 +34,8 @@ const { tituloPagina } = Astro.props;
     --color-principal: #000000;
     --color-secundario: #121212;
     --color-span: #2f2f2f;
+
+    --color-alternar: #1B211A;
     --border-color: #4b4b4b;
     --color-fuente: #c5c5c5;
     --color-boton: #354b6b;
@@ -47,6 +49,7 @@ const { tituloPagina } = Astro.props;
     --color-principal: #ffffff;
     --color-secundario: #f0f4f8;
     --color-fuente: #020d22;
+    --color-alternar: #1B211A;
     --color-boton: #d1d5db;
     --color-fuente-fechas: #4b5563;
     --color-codigo: #01284f;
@@ -59,7 +62,6 @@ const { tituloPagina } = Astro.props;
   }
 
   html {
-    background-color: var(--color-principal);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -73,6 +75,12 @@ const { tituloPagina } = Astro.props;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #e5e5f7;
+    opacity: 0.8;
+    background-image: radial-gradient(var(--color-alternar) 0.5px, var(--color-principal) 0.5px);
+    background-size: 10px 10px;
+
+
   }
 
   .barra-top {
