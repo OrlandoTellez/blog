@@ -1,0 +1,70 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import TarjetaBlogDiario from "../../components/TarjetaBlogDiario.astro"
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog-diario")
+---
+
+<Layout tituloPagina="Blog diario">
+  <section>
+    <div>
+      <span>Diario de desarrollo</span>
+      <h1>Blog Diario</h1>
+      <p>Mis aprendizajes, experimentos y reflexiones del día a día como desarrollador.</p>
+    </div>
+    <article>
+      {
+      posts.map((post) => (
+      <TarjetaBlogDiario 
+        fecha={post.data.fecha}
+        titulo={post.data.titulo}
+        descripcionPrevia={post.data.descripcionPrevia}
+        slug={`/blog-diario/${post.slug}`}
+        dia={post.data.dia}
+      />
+      ))
+      }
+     
+    </article>
+  </section> 
+</Layout>
+
+<style>
+  section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px;
+    gap: 30px;
+  }
+  
+  div{
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  div p {
+    margin-top: 10px;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  span{
+    background-color: var(--color-secundario);
+    padding: 5px 20px;
+    border-radius: 10px;
+    font-size: 13px;
+    margin: 10px 0px;
+
+  }
+
+</style>

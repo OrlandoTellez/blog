@@ -1,0 +1,46 @@
+---
+interface Props {
+    titulo: string;
+    fecha: string;
+    descripcionPrevia: string;
+    slug: string;
+    dia: string;
+}
+const {titulo, fecha, descripcionPrevia, slug, dia} = Astro.props
+---
+
+<article>
+    <div>
+      <p>{fecha}</p>
+      <p>{dia}</p>
+    </div>
+    <h2>{titulo}</h2>
+    <p>{descripcionPrevia}</p>
+    <a href=`${slug}`>Leer más -></a>
+</article>
+
+<style>
+    article{
+        display: flex;
+        flex-direction: column;
+        background-color: var(--color-secundario);
+        justify-content: space-between;
+        border-radius: 15px;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    p{
+        color: #818181;
+    }
+
+    div{
+        display: flex;
+        justify-content: space-between;
+        
+        && p{
+            color: #578E7E;
+            font-weight: bold;
+        }
+    }
+</style>
