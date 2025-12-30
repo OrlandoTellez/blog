@@ -25,7 +25,6 @@ const posts = await getCollection("blog-diario")
       />
       ))
       }
-     
     </article>
   </section> 
 </Layout>
@@ -68,8 +67,9 @@ const posts = await getCollection("blog-diario")
   }
 
   article{
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 20px;
   }
 </style>
