@@ -22,9 +22,9 @@ import docIcon from "@/assets/iconos/doc.svg"
             comparto lo que voy aprendiendo.
           </p>
           <div class="resaltadores">
-            <Resaltador texto="JavaScript"/>
             <Resaltador texto="TypeScript"/>
             <Resaltador texto="React"/>
+            <Resaltador texto="Rust"/>
           </div>
         </article>
       </div>
@@ -59,12 +59,13 @@ import docIcon from "@/assets/iconos/doc.svg"
     align-items: center;
     justify-content: center;
     text-align: center;
+    margin: auto;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    max-width: var(--ancho-maximo);
+    max-width: 700px;
   }
 
   figure {
@@ -78,6 +79,9 @@ import docIcon from "@/assets/iconos/doc.svg"
 
   .contenedor-botones {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
     gap: 20px;
   }
 
@@ -98,6 +102,8 @@ import docIcon from "@/assets/iconos/doc.svg"
 
   .resaltadores{
     display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   @media only screen and (min-width: 1024px) {
@@ -114,12 +120,17 @@ import docIcon from "@/assets/iconos/doc.svg"
     }
 
     figure {
-      width: 150px;
+      width: 300px;
     }
 
     .resaltadores{
       display: flex;
       gap: 10px;
+    }
+
+    .contenedor-botones {
+      margin-top: 0px;
+      justify-content: flex-start;
     }
 
     .contenedor-datos--perfil {
